@@ -210,4 +210,66 @@ public class ChineseCheckerState
             }
         }
     }
+    
+    public void jumpUp(int posX, int posY){
+        if (posX <= 1) {
+            System.out.println("Movement Out of map!");
+        }
+        else{
+            if ((this.boardState[posX-1][posY] != 0 && this.boardState[posX-2][posY] == 0)) {
+                int taraf = this.boardState[posX][posY];
+                this.boardState[posX][posY] = 0;
+                this.boardState[posX-2][posY] = taraf;
+            }
+            else{
+                System.out.println("Invalid jump!");
+            }
+        }
+    }
+    public void jumpDown(int posX, int posY){
+        if (posX >=this.boardState.length-2) {
+            System.out.println("Movement Out of map!");
+        }
+        else{
+            if ((this.boardState[posX+1][posY] != 0 && this.boardState[posX+2][posY] == 0)) {
+                int taraf = this.boardState[posX][posY];
+                this.boardState[posX][posY] = 0;
+                this.boardState[posX+2][posY] = taraf;
+            }
+            else{
+                System.out.println("Invalid jump!");
+            }
+        }
+    }
+    public void jumpRight(int posX, int posY){
+        if (posY >=this.boardState.length-2) {
+            System.out.println("Movement Out of map!");
+        }
+        else{
+            if ((this.boardState[posX][posY+1] != 0 && this.boardState[posX][posY+2] == 0)) {
+                int taraf = this.boardState[posX][posY];
+                this.boardState[posX][posY] = 0;
+                this.boardState[posX][posY+2] = taraf;
+            }
+            else{
+                System.out.println("Invalid jump!");
+            }
+        }
+    }
+    public void jumpLeft(int posX, int posY){
+        if (posY <= 1) {
+            System.out.println("Movement Out of map!");
+        }
+        else{
+            if ((this.boardState[posX][posY-1] != 0 && this.boardState[posX][posY-2] == 0)) {
+                int taraf = this.boardState[posX][posY];
+                this.boardState[posX][posY] = 0;
+                this.boardState[posX][posY-2] = taraf;
+            }
+            else{
+                System.out.println("Invalid jump!");
+            }
+        }
+    }
+    
 }
